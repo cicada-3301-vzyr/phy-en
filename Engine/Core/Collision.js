@@ -345,6 +345,8 @@ function resolveCollision(shape1, shape2, collisionInfo, positionalCorrectionPer
     // debugger;
     shape1.velocity.add(tangent.copy().scale(-shape1.invMass));
     shape2.velocity.add(tangent.copy().scale(shape2.invMass));
+    if(shape1.velocity.magSq()<=0.005){ shape1.velocity.scale(0);}
+    if(shape2.velocity.magSq()<=0.005){ shape2.velocity.scale(0);}
 
 
     // //TODO : remove this
